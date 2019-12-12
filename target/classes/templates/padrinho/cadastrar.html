@@ -1,0 +1,92 @@
+<!doctype html>
+<html layout:decorate="~{layout}">
+  <body>
+    
+	
+	<section layout:fragment="corpo">
+
+	<h1>Cadastro de Padrinho & Madrinhas</h1>
+	
+	<div th:replace="fragments/alert"></div>
+	<form th:action="${padrinho.id == null} ? @{/padrinho/salvar} : @{/padrinho/editar}" 
+		  th:object="${padrinho}" method="POST">
+	
+
+	 <div class="form-row">
+    <div class="form-group col-md-6">
+    <label for="inputNome">Nome</label>
+    <input type="text" class="form-control" id="inputNome" 
+    th:classappend="${#fields.hasErrors('nome')} ? 'is-invalid'"
+    placeholder="Jaozin da silva" th:field="*{nome}">
+    <div class="invalid-feeback">
+    	<span th:errors="*{nome}"></span>
+    </div>
+  </div>
+    
+    <div class="form-group col-md-6">
+      <label for="inputMesa">Mesa</label>
+      <input type="text" class="form-control" id="inputMesa" 
+      th:classappend="${#fields.hasErrors('mesa')} ? 'is-invalid'"
+      placeholder="3" th:field="*{mesa}">
+      <div class="invalid-feeback">
+    	<span th:errors="*{mesa}"></span>
+    </div>
+    </div>
+    
+  </div>
+  
+  <div class="form-row">
+  <div class="form-group col-md-6">
+      <button type="button" id="btnPadrinho" class="btn btn-primary">Padrinho</button>
+      <input type="hidden" id="idPadrinho" th:field="*{padrinho}"> 
+    </div>
+    <div class="form-group col-md-6">
+      <button type="button" id="btnMadrinha" class="btn btn-primary">Madrinha</button>
+      <input type="hidden" id="idMadrinha" th:field="*{madrinha}">
+    </div>
+  </div>
+  
+  <div class="form-row">
+  
+  	<div class="form-group col-md-6">
+     					 <label for="inputNoivoOrNoiva">Padrinho / Madrinha para:</label>
+      					<select class="form-control" id="inputNoivoOrNoiva" th:field="*{tipo_padrinho}" >
+                          <option value="" disabled="disabled">Selecione um</option>
+                          <option value="noivo">Noivo</option>
+                          <option value="noiva">Noiva</option>
+                        </select> 
+    </div>
+  
+  </div>
+  
+  
+  <div class="form-row">
+  	<div class="form-group col-md-6" >
+                      <label for="inputAutor">Presente</label>
+  			               <select class="form-control" id="inputPresente" th:field="*{presente}" >
+                          <option value="">Selecione um presente</option>
+                          <option th:each="p : ${presentes}" th:value="${p.id}" th:text="${p.descricao}"></option>
+                        </select> 
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+  	<label>festa:</label>
+  	<select class="form-control" th:field="*{festa}" >
+  	<option value="">Selecione uma festa</option>
+    <option th:each="f : ${festas}" th:value="${f.id}" th:text="${f.noivo+ ' ' + '&' + ' ' + f.noiva}"></option>
+  	</select>
+  	</div>
+
+  </div>
+
+
+
+	<input type="hidden" id="id" th:field="*{id}">
+  <button type="submit" class="btn btn-primary">Cadastar</button>
+</form>
+</section>
+
+
+
+  </body>
+</html>

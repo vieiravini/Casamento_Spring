@@ -1,0 +1,52 @@
+<!doctype html>
+<html layout:decorate="~{layout}">
+
+  <body>
+  
+  <section layout:fragment="corpo">
+  
+    <h1>Lista de festas</h1>
+    
+  <div th:replace="fragments/alert"></div>
+    
+    <div class="table-responsive">
+					<table class="table table-striped table-hover table-sm">
+					    <thead>
+					    <tr>
+					        <th>#</th>
+					        <th>Local da Festa</th>
+					   		<th>Nome do noivo</th>
+					        <th>Nome da noiva</th>
+					        <th>Horario da Festa</th>
+					        <th>Data do casamento</th>
+					        <th>Editar / Exluir</th>
+					        
+					   </tr>
+					    </thead>
+					    <tbody>
+					     <tr th:each="f : ${festas}">
+					         <td th:text="${f.id}"></td>
+					         <td th:text="${f.local_festa}"></td>
+					         <td th:text="${f.noivo}"></td>
+					         <td th:text="${f.noiva}"></td>
+					         <td th:text="${f.horario}"></td>
+					         <td th:text="${f.data_casamento}"></td>
+					         
+					         <td colspan="2">
+					             <a class="btn btn-info btn-sm" th:href="@{/festas/editar/{id} (id=${f.id}) }"  role="button">
+					                 <span class="fas fa-edit" title="Editar" aria-hidden="true"></span>
+					             </a>
+					             <button th:id="${ 'btn_festas/excluir/' + f.id}" type="button" class="btn btn-danger btn-sm"
+					             		data-toggle="modal" data-target="#myModal">
+					                 <span class="fas fa-times" aria-hidden="true"></span>
+					             </button>
+					         </td>
+					     </tr>
+					    </tbody>
+					</table>
+					
+	            </div>
+	      
+			<div th:replace="fragments/modal :: modal"></div>
+  </body>
+</html>

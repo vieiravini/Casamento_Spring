@@ -1,0 +1,85 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.layout-main{
+	display: flex;
+}
+
+.index-section{
+	margin: 200px auto 0 auto;
+}
+
+section{
+	margin: 100px auto 0 auto;
+	width: 60%;
+}
+h1{
+	margin: 0 0 50px 0 !important;
+	text-align: center;
+}
+
+#nomeConvidado{
+	margin: 0 0 0 0 !important;
+}
+
+.familia{
+	margin: 20px 0 20px 0 !important;
+}
+
+
+.sidebar {
+    width: 0px;
+    height: 100vh;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;    
+    background-color: #f8f9fa;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: width .5s;
+}
+
+.sidebar .nav {
+	margin-bottom: 0px;
+}
+
+.sidebar .nav-item {
+	width: 100%;
+}
+
+.sidebar .nav-item {
+	margin-left: 0;
+}
+
+.sidebar .nav-link {
+	border-radius: 0;
+} 
+
+.sidebar ul li:hover a, .menu ul li.active a{
+    color: #777777;
+}
+
+.sidebar ul{
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.sidebar ul li a{
+    display: block;
+    color:#1a1a1a;
+    padding: 10px 15px;
+    white-space: nowrap;
+}
+
+.sidebar.sidebar-open {
+    width: 300px;
+}
+
+/*
+ * nav-pills home
+ */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	color: #fff;
+	background-color: #1e94d2;
+}

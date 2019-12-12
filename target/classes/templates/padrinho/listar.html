@@ -1,0 +1,84 @@
+<!doctype html>
+<html layout:decorate="~{layout}">
+
+  <body>
+  
+  <section layout:fragment="corpo">
+  
+    <h1>Lista de Padrinhos e Madrinhas</h1>
+    
+  <div th:replace="fragments/alert"></div>
+    
+    <div class="table-responsive">
+					<table class="table table-striped table-hover table-sm">
+					    <thead>
+					    <tr>
+					        <th>#</th>
+					        <th>Nome</th>
+					        <th>Madrinha / Padrinho</th>
+					        <th>Madrinha / Padrinho do(a):</th>
+					        <th>Editar</th>
+					        <th>Excluir</th>
+					        <th>Info</th>
+					    </tr>
+					    </thead>
+					    <tbody>
+					     <tr th:each="p : ${padrinhos}">
+					         <td th:text="${p.id}"></td>
+					         <td th:text="${p.nome}"></td>
+					         
+					         <td>
+					         <div th:if="${p.padrinho == true}">
+								   <p>Padrinho</p>
+								</div>
+					         <div th:unless="${p.padrinho == true}">
+					         		<p>Madrinha</p>
+								</div>
+					         
+					         
+					         
+					         </td>
+					         
+					         
+							 <td>
+							 <div th:switch="${p.tipo_padrinho}">
+							 <p th:case="'noivo'">Noivo</p>
+							 <p th:case="'noiva'"> Noiva </p>
+							 </div>	
+							 </td>
+							 
+							
+						
+										         
+					         
+					         <td>
+					             <a class="btn btn-info btn-sm" th:href="@{/padrinho/editar/{id} (id=${p.id}) }"  role="button">
+					                 <span class="fas fa-edit" title="Editar" aria-hidden="true"></span>
+					             </a>
+					             
+					         </td>
+					         
+					         <td>
+					         <button th:id="${ 'btn_padrinho/excluir/' + p.id}" type="button" class="btn btn-danger btn-sm"
+					             		data-toggle="modal" data-target="#myModal">
+					                 <span class="fas fa-times" aria-hidden="true"></span>
+					             </button>
+					         
+					         </td>
+					         
+					         <td>
+					         
+					         	  <a class="btn btn-info btn-sm" th:href="@{/padrinho/perfil/{id} (id=${p.id}) }"  role="button">
+					                 <span class="far fa-eye" title="Perfil" aria-hidden="true"></span>
+					             </a>
+					         </td>
+					         
+					     </tr>
+					    </tbody>
+					</table>
+					
+	            </div>
+	      
+			<div th:replace="fragments/modal :: modal"></div>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="/style/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Casamento</title>
+  </head>
+<body>
+
+
+	<div class="layout-main">
+		
+		<aside>
+			<nav th:replace="fragments/sidebar :: nav-sidebar">
+				<span>menu</span>
+			</nav>
+		</aside>
+		
+		<section layout:fragment="corpo">
+			<div>conteudo principal das páginas</div>
+		</section>
+		
+	</div>
+
+
+	
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/c840c7b572.js" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	
+	
+		//$.getJSON("/presente.json", function(json) {
+			//console.log(json);
+		//	$("#inputPresente").autocomplete({
+			//	source: json
+		//	});
+	//	});
+	
+		//$('#madrinha').hide();
+		//$('#padrinho').hide();
+		//$('#convidado').hide();
+		
+		/*
+		
+		$("#btn_padrinho").click(function(){
+			if($("#padrinho").is(":visible")){
+				$('#padrinho').hide();
+			}else if($("#madrinha").is(":visible")){
+				$('#padrinho').hide();
+				$('#padrinho').show();
+			}else{
+				$('#padrinho').show();
+			}
+		})
+		
+		$("#btn_madrinha").click(function(){
+			if($("#madrinha").is(":visible")){
+				$('#madrinha').hide();
+			}else if($("#padrinho").is(":visible")){
+				$('#padrinho').hide();
+				$('#madrinha').show();
+			}else{
+				$('#madrinha').show();
+			}
+		})
+		
+		
+		
+		*/
+		
+		
+		/*$("#btn_padrinho").click(function(){
+			if($("#padrinho").is(":visible")){
+				$('#padrinho').hide();
+			}else{
+				$('#madrinha').hide();
+				$('#convidado').hide();	
+				$('#padrinho').show();	
+			}
+			
+				
+		})
+		
+		$("#btn_madrinha").click(function(){
+			if($("#madrinha").is(":visible")){
+				$('#madrinha').hide();
+			}else{
+			$('#padrinho').hide();
+			$('#convidado').hide();	
+			$('#madrinha').show();
+			}
+		})
+		
+		
+		$("#btn_convidado").click(function(){
+			if($("#convidado").is(":visible")){
+				$('#convidado').hide();
+			}else{
+				$('#madrinha').hide();
+				$('#padrinho').hide();
+				$('#convidado').show();	
+			}
+							
+		})
+		
+				*/
+				
+				
+				$("#btnPadrinho").click(function(){
+					$("#btnPadrinho").addClass("active");
+					$("#btnMadrinha").removeClass("active")
+					$("#idPadrinho").val('true');
+					$("#idMadrinha").val('false');
+				})
+				
+				$("#btnMadrinha").click(function(){
+					$("#btnPadrinho").removeClass("active");
+					$("#btnMadrinha").addClass("active")
+					$("#idPadrinho").val('false');
+					$("#idMadrinha").val('true');
+				})
+				
+				
+		
+		
+		var url = '';
+		
+		$('button[id*="btn_"]').click(function() {
+			url = "http://localhost:8080/" + $(this).attr('id').split("_")[1];
+		});
+		
+		$('#ok_confirm').click(function() {
+			document.location.href = url;
+		});
+	    
+		$(function() {
+			$('[data-toggle="popover"]').popover();
+		});
+		
+		$(document).ready(function(){
+		    $(".navbar-toggle").click(function(){
+		        $(".sidebar").toggleClass("sidebar-open");
+		    })
+		});
+
+	</script>
+</body>
+</html>

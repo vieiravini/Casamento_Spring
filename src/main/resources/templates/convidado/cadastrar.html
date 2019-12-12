@@ -1,0 +1,73 @@
+<!doctype html>
+<html layout:decorate="~{layout}">
+  <body>
+    
+	
+	<section layout:fragment="corpo">
+
+	<h1>Cadastro de convidados</h1>
+	
+	<div th:replace="fragments/alert"></div>
+	<form th:action="${convidado.id == null} ? @{/convidado/salvar} : @{/convidado/editar}" 
+	                  th:object="${convidado}" method="POST">
+	
+
+	  <div class="form-group">
+    <label for="inputNome">Nome convidado</label>
+    <input type="text" class="form-control" id="inputNome" 
+    th:classappend="${#fields.hasErrors('nome')} ? 'is-invalid'"
+    placeholder="Jaozin da silva" th:field="*{nome}">
+    <div class="invalid-feeback">
+    	<span th:errors="*{nome}"></span>
+    </div>
+  </div>
+	
+	
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputMesa">Mesa</label>
+      <input type="text" class="form-control" id="inputMesa" 
+      th:classappend="${#fields.hasErrors('mesa')} ? 'is-invalid'"
+      placeholder="3" th:field="*{mesa}">
+      <div class="invalid-feeback">
+    	<span th:errors="*{mesa}"></span>
+    </div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputFamilia">Nome da familia</label>
+      <input type="text" class="form-control" id="inputFamilia" placeholder="silva" th:field="*{familia}">
+    </div>
+  </div>
+
+
+  <div class="form-row">
+  	<div class="form-group col-md-12">
+  	<label>festa:</label>
+  	<select class="form-control" th:field="*{festa}" >
+  	<option value="">Selecione uma festa</option>
+    <option th:each="f : ${festas}" th:value="${f.id}" th:text="${f.noivo+ ' ' + '&' + ' ' + f.noiva}"></option>
+  	</select>
+  	</div>
+  </div>
+  
+
+  <div class="form-row">
+  	<div class="form-group col-md-12">
+  	<label>Presente:</label>
+  	<select class="form-control" th:field="*{presente}" >
+  	<option value="">Selecione um presente</option>
+    <option th:each="p : ${presentes}" th:value="${p.id}" th:text="${p.descricao}"></option>
+  	</select>
+  	</div>
+  </div>
+
+
+	 <input type="hidden" id="id" th:field="*{id}"/>
+  <button type="submit" class="btn btn-primary">Cadastar</button>
+</form>
+</section>
+
+
+
+  </body>
+</html>
