@@ -55,5 +55,6 @@ public abstract class AbstractDao<T, PK extends Serializable> {
         }
     	return query.getResultList();
 	}
+	
 }
 

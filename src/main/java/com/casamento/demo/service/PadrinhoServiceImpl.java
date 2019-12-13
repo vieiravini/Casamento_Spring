@@ -43,4 +43,5 @@ public class PadrinhoServiceImpl implements PadrinhoService {
 		return dao.findAll();
 	}
 
+
 }

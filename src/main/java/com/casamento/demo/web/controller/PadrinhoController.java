@@ -42,7 +42,6 @@ public class PadrinhoController {
 	@GetMapping("/listar")
 	public String listarPadrinhos(ModelMap model) {
 		
-		
 		model.addAttribute("padrinhos", padrinhoService.buscarTodos() );
 		return "/padrinho/listar"; 
 	}

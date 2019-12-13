@@ -15,5 +15,6 @@ public interface PadrinhoService {
 	Padrinho buscarPorId(Long id);
 	
 	List<Padrinho> buscarTodos();
+
 	
 }

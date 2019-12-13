@@ -14,4 +14,5 @@ public interface PadrinhoDao {
 	Padrinho findById(Long id);
 	
 	List<Padrinho> findAll();
+
 }

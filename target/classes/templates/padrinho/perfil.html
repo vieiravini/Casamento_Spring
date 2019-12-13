@@ -1,0 +1,57 @@
+<!doctype html>
+<html layout:decorate="~{layout}">
+<head>    <meta charset="utf-8"></head>
+  <body>
+    
+	
+	<section layout:fragment="corpo">
+
+				<div>
+				<h1 id="nomeConvidado" th:text="${padrinho.nome}"></h1>
+        			<h4 class="text-center m-top familia"></h4>
+
+					<div class="row">
+  						<div class="col-md-6">
+		  						<div class="card m-auto" style="width: 20rem; height: 22rem;">
+							  		<div class="card-body">
+								    <h5 class="card-title">Festa</h5>
+								    <h6 class="card-subtitle mb-2 text-muted" th:text="${festa.noivo+ ' ' + '&' + ' ' + festa.noiva}"></h6>
+									<br>
+									<h5>Horário:</h6>
+									<p th:text="${festa.horario}"></p>
+									<h5>Data:</h6>
+									<p th:text="${festa.data_casamento}"></p>
+									<h5>Local:</h6>
+									<p th:text="${festa.endereco}"></p>
+						
+					  			</div>
+							</div>
+  						</div>
+  						
+  						<div class="col-md-6">
+  						<div class="card m-auto" style="width: 20rem; height: 22rem;">
+					  <div class="card-body">
+					    <h5 class="card-title">Presente</h5>
+					    <br>
+						<h5>Descricao:</h5>
+						<p th:text="${presente.descricao}"> </p>
+						<h5>Local da compra:</h5>
+						<p th:text="${presente.local_compra}"> </p>
+					  </div>
+					</div>
+  						
+  						</div>
+  	
+  						
+  					</div>
+  				
+        			
+        		</div>
+	
+	
+	</section>
+
+
+
+  </body>
+</html>

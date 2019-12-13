@@ -7,4 +7,5 @@ import com.casamento.demo.domain.Padrinho;
 @Repository
 public class PadrinhoDaoImpl extends AbstractDao<Padrinho, Long> implements PadrinhoDao{
 
+
 }
